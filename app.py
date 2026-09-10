@@ -23,7 +23,7 @@ def home():
     </style></head>
     <body>
     <div class='box'>
-    <h2>🏥 Hospital Appointment</h2>
+    <h2>🏥 Amit</h2>
     <form action='/book' method='post'>
     <input type='text' name='name' placeholder='Patient Ka Naam' required>
     <input type='text' name='phone' placeholder='Phone Number' required>
