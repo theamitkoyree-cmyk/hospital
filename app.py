@@ -15,10 +15,16 @@ DOCTOR_PASSWORD = "amit123"
 @app.route('/')
 def home():
     return """
-    <head><meta name='viewport' content='width=device-width, initial-scale=1'>
+    <head>
+    <title>Amit Hospital - Varanasi</title>
+    <link rel="icon" href="/static/logo.jpg" type="image/jpeg">
+    <meta property="og:image" content="https://thepens.shop/static/logo.jpg">
+    <meta property="og:title" content="Amit Hospital">
+    <meta property="og:description" content="Best Hospital in Varanasi for appointments">
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
     <style>
     body{font-family:Arial;background:#E8F5ff;display:flex;justify-content:center;padding:20px}
- .box{background:white;padding:25px;border-radius:15px;box-shadow:0 4px 15px rgba(0,0,0,0.1);width:100%;max-width:400px}
+   .box{background:white;padding:25px;border-radius:15px;box-shadow:0 4px 15px rgba(0,0,0,0.1);width:100%;max-width:400px}
     h2{color:#0077b6;text-align:center}
     input{width:100%;padding:12px;margin:8px 0px;border-radius:8px;border:1px solid #ccc;box-sizing:border-box}
     button{width:100%;padding:12px;background:#0077b6;color:white;border:none;border-radius:8px;font-size:16px;margin-top:10px}
