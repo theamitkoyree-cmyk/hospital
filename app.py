@@ -1,5 +1,5 @@
 import sqlite3
-from flask import Flask, request, redirect
+from flask import Flask, request, redirect, Response
 
 app = Flask(__name__)
 
@@ -18,7 +18,7 @@ def home():
     <head><meta name='viewport' content='width=device-width, initial-scale=1'>
     <style>
     body{font-family:Arial;background:#E8F5ff;display:flex;justify-content:center;padding:20px}
-  .box{background:white;padding:25px;border-radius:15px;box-shadow:0 4px 15px rgba(0,0,0,0.1);width:100%;max-width:400px}
+ .box{background:white;padding:25px;border-radius:15px;box-shadow:0 4px 15px rgba(0,0,0,0.1);width:100%;max-width:400px}
     h2{color:#0077b6;text-align:center}
     input{width:100%;padding:12px;margin:8px 0px;border-radius:8px;border:1px solid #ccc;box-sizing:border-box}
     button{width:100%;padding:12px;background:#0077b6;color:white;border:none;border-radius:8px;font-size:16px;margin-top:10px}
@@ -74,6 +74,24 @@ def doctor():
     </form>
     </div></div>
     """
+
+@app.route('/sitemap.xml')
+def sitemap():
+    xml = """<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://thepens.shop/</loc>
+    <lastmod>2025-09-11</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>"""
+    return Response(xml, mimetype='application/xml')
+
+@app.route('/robots.txt')
+def robots():
+    text = "User-agent: *\nAllow: /\nSitemap: https://thepens.shop/sitemap.xml"
+    return Response(text, mimetype='text/plain')
 
 if __name__ == '__main__':
     app.run()
